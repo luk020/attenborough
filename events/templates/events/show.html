@@ -1,0 +1,23 @@
+{% extends "events/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+    <h1>{{ show }}</h1>
+
+    <ul>
+        {% for event in events %}
+            <li>{{ event }}</li>
+        {% endfor %}
+    </ul>
+
+        <form action="{% url 'show' show.id %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            {{ field.name }}: {{ field }}
+            <p></p>
+            {% endfor %}
+            <input type="submit" value="Submit">
+        </form>
+
+{% endblock %}

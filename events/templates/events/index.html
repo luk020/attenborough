@@ -1,0 +1,17 @@
+{% extends "events/layout.html" %}
+
+{% block body %}
+
+    <h1>Shows</h1>
+    <ul>
+        {% for show in shows %}
+            <!--Because the url 'flight' takes a variable, you specify the variable after the url-->
+            <li><a href="{% url 'show' show.id %}">{{ show.name }}</a>({{ show.year }})</li>
+        {% endfor %}
+    </ul>
+
+    <form>
+        
+    </form>
+
+{% endblock %}
